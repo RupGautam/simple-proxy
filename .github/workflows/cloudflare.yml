@@ -4,8 +4,12 @@ name: Deploy Worker
 # repository_dispatch is triggered by CF
 # secrets should also be made by CF
 
-on: ["repository_dispatch"]
-
+# on: ["repository_dispatch"]
+on:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
 jobs:
   deploy:
     runs-on: ubuntu-latest
